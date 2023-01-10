@@ -17,7 +17,7 @@ figma.ui.onmessage = msg => {
     const {designerColor, offer, buyer, sequenceFrom, orderBy} = msg.formData
     
     const renameNode = (node: SceneNode, number: String | Number) => {
-      node.name = `${offer}_${buyer}_${designerColor}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}_${number}`
+      node.name = `${offer}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
     }
 
 
