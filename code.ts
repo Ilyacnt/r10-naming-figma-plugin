@@ -14,8 +14,9 @@ figma.ui.onmessage = msg => {
 
   } else if (msg.type === 'action') {
 
-    const {designerColor, offer, buyer, sequenceFrom, orderBy} = msg.formData
+    const {designerColor, offer, buyer, sequenceFrom, orderBy, numberOfResizes} = msg.formData
     
+
     const renameNode = (node: SceneNode, number: String | Number) => {
       node.name = `${offer}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
     }
@@ -25,7 +26,8 @@ figma.ui.onmessage = msg => {
       designerColor,
       offer,
       buyer,
-      orderBy
+      orderBy,
+      numberOfResizes
     })
 
     
@@ -40,9 +42,18 @@ figma.ui.onmessage = msg => {
     } else if (orderBy === 'layerPanel') {
       
       let counter = sequenceFrom
+      let counterResizes = 1
       selectedFrames.forEach(frame => {
+        
         renameNode(frame, counter)
-        counter++
+        if (counterResizes < numberOfResizes) {
+          counterResizes++
+          counter = counter
+        }
+        else if (counterResizes >= numberOfResizes) {
+          counterResizes = 1
+          counter++
+        }
       })
       
 
@@ -57,10 +68,22 @@ figma.ui.onmessage = msg => {
         if (a.y > b.y) return 1;
       })
 
+
       let counter = sequenceFrom
+      let counterResizes = 1
       selectedFrames.forEach(frame => {
+        
         renameNode(frame, counter)
-        counter++
+        if (counterResizes < numberOfResizes) {
+          console.log('1 IF');
+          counterResizes++
+          counter = counter
+        }
+        else if (counterResizes >= numberOfResizes) {
+          console.log('2 IF');
+          counterResizes = 1
+          counter++
+        }
       })
       
       
@@ -76,9 +99,20 @@ figma.ui.onmessage = msg => {
       })
 
       let counter = sequenceFrom
+      let counterResizes = 1
       selectedFrames.forEach(frame => {
+        
         renameNode(frame, counter)
-        counter++
+        if (counterResizes < numberOfResizes) {
+          console.log('1 IF');
+          counterResizes++
+          counter = counter
+        }
+        else if (counterResizes >= numberOfResizes) {
+          console.log('2 IF');
+          counterResizes = 1
+          counter++
+        }
       })
 
 

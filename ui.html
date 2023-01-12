@@ -1,14 +1,27 @@
 
 <div class="header-container">
-  <h1>Info</h1>
-  <h1 id="aboutButton">About</h1>
+  <h1 id="infoText">Info</h1>
+  <svg class="settings-icon" id="settingsButton" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 7.5625C10.3201 7.5625 9.65554 7.76411 9.09025 8.14182C8.52495 8.51954 8.08436 9.0564 7.82418 9.68453C7.56401 10.3126 7.49593 11.0038 7.62857 11.6706C7.76121 12.3374 8.0886 12.9499 8.56934 13.4307C9.05008 13.9114 9.66259 14.2388 10.3294 14.3714C10.9962 14.5041 11.6874 14.436 12.3155 14.1758C12.9436 13.9157 13.4805 13.4751 13.8582 12.9098C14.2359 12.3445 14.4375 11.6799 14.4375 11C14.4348 10.0892 14.0718 9.21639 13.4277 8.57233C12.7836 7.92826 11.9109 7.56522 11 7.5625ZM18.4216 11C18.4198 11.3212 18.3963 11.6419 18.3511 11.9599L20.4433 13.5979C20.5344 13.6731 20.5958 13.7783 20.6165 13.8947C20.6372 14.011 20.6158 14.1309 20.5563 14.233L18.5771 17.6498C18.517 17.751 18.4231 17.8277 18.3119 17.8664C18.2008 17.9052 18.0796 17.9035 17.9696 17.8617L15.5096 16.8734C14.9974 17.2678 14.4368 17.5952 13.8415 17.8475L13.4737 20.4591C13.4531 20.5761 13.3926 20.6823 13.3024 20.7596C13.2122 20.8369 13.0979 20.8804 12.9792 20.8828H9.02088C8.90428 20.8805 8.7919 20.8388 8.70208 20.7644C8.61225 20.6901 8.55029 20.5874 8.52631 20.4733L8.1585 17.8617C7.56161 17.6123 7.00064 17.2844 6.49045 16.8867L4.03049 17.875C3.92053 17.9169 3.79933 17.9186 3.6882 17.8799C3.57708 17.8413 3.48314 17.7647 3.42291 17.6636L1.44377 14.2471C1.3842 14.1451 1.36286 14.0252 1.38356 13.9088C1.40426 13.7925 1.46566 13.6873 1.55678 13.6121L3.64893 11.9741C3.6043 11.6513 3.58076 11.3259 3.57846 11C3.58025 10.6788 3.60379 10.3581 3.64893 10.0401L1.55678 8.40211C1.46566 8.32687 1.40426 8.22168 1.38356 8.10534C1.36286 7.989 1.3842 7.86909 1.44377 7.76703L3.42291 4.35016C3.48308 4.24901 3.57698 4.17231 3.68811 4.13356C3.79924 4.09482 3.92048 4.0965 4.03049 4.13832L6.49045 5.1266C7.00269 4.73215 7.56325 4.4048 8.1585 4.1525L8.52631 1.54086C8.5469 1.42388 8.60747 1.31767 8.69767 1.2404C8.78788 1.16312 8.90212 1.11957 9.02088 1.11719H12.9792C13.0958 1.11946 13.2081 1.16118 13.298 1.23556C13.3878 1.30993 13.4498 1.41255 13.4737 1.52668L13.8415 4.13832C14.4392 4.38753 15.0009 4.71541 15.5117 5.11328L17.9696 4.125C18.0795 4.08314 18.2007 4.0814 18.3118 4.12006C18.423 4.15873 18.5169 4.23533 18.5771 4.33641L20.5563 7.75328C20.6158 7.85534 20.6372 7.97525 20.6165 8.09159C20.5958 8.20793 20.5344 8.31312 20.4433 8.38836L18.3511 10.0263C18.3957 10.349 18.4193 10.6743 18.4216 11Z" fill="white"/>
+  </svg>
 </div>
 
 <div class="about-container" id="aboutContainer">
-  <p>Version 1.0.2</p>
-  <p>Any questions? Welcome to Telegram.</p>
-  <a href="https://t.me/oneheadache" target=”_blank”>@oneheadache</a>
+  
+  <div class="input-number-of-resizes-container">
+    <p class="input-number-of-resizes-container--label">Number of resizes:</p>
+    <input class="input-number-of-resizes-container--input" id="numberOfResizes" type="text" placeholder="3" value="3">
+  </div>
+
+  <div class="info-items">
+      <p>Any questions? Welcome to Telegram.</p>
+      <a href="https://t.me/oneheadache" target=”_blank”>@oneheadache</a>
+      <p><i>Version 1.1.0</i></p>
+  </div>
 </div>
+
+<div id="mainContainer">
+
 
 <div class="input-container">
   <p class="input-container--label">Designer color:</p>
@@ -53,6 +66,8 @@
   </div>
 </div>
 
+</div>
+
 <script>
   // Form UI-elements with data
   const designerColor = document.getElementById('designerColor')
@@ -60,31 +75,39 @@
   const buyer = document.getElementById('buyer')
   const sequenceFrom = document.getElementById('sequenceFrom')
   const orderBy = document.getElementById('orderBy')
+  const numberOfResizes = document.getElementById('numberOfResizes')
+  // UI-elements
+  const infoText = document.getElementById('infoText')
+  const mainContainer = document.getElementById('mainContainer')
   // Buttons
   const cancelButton = document.getElementById('cancelButton')
   const actionButton = document.getElementById('actionButton')
   // About
-  const aboutButton = document.getElementById('aboutButton')
+  const settingsButton = document.getElementById('settingsButton')
   const aboutContainer = document.getElementById('aboutContainer')
-  let isAboutContainer = false
+  let isSettingsActive = false
 
   const hideAboutContainer = () => {
     aboutContainer.style.display = 'none'
   }
 
   const showAboutContainer = () => {
-    aboutContainer.style.display = 'initial'
+    aboutContainer.style.display = 'flex'
   }
 
-  aboutButton.onclick = () => {
-    if (isAboutContainer) {
+  settingsButton.onclick = () => {
+    if (isSettingsActive) {
       hideAboutContainer()
-      isAboutContainer = false
-      aboutButton.innerText = 'About'
+      isSettingsActive = false
+      infoText.innerText = 'INFO'
+      mainContainer.style.display = 'initial'
+      settingsButton.innerHTML = `<path d="M11 7.5625C10.3201 7.5625 9.65554 7.76411 9.09025 8.14182C8.52495 8.51954 8.08436 9.0564 7.82418 9.68453C7.56401 10.3126 7.49593 11.0038 7.62857 11.6706C7.76121 12.3374 8.0886 12.9499 8.56934 13.4307C9.05008 13.9114 9.66259 14.2388 10.3294 14.3714C10.9962 14.5041 11.6874 14.436 12.3155 14.1758C12.9436 13.9157 13.4805 13.4751 13.8582 12.9098C14.2359 12.3445 14.4375 11.6799 14.4375 11C14.4348 10.0892 14.0718 9.21639 13.4277 8.57233C12.7836 7.92826 11.9109 7.56522 11 7.5625ZM18.4216 11C18.4198 11.3212 18.3963 11.6419 18.3511 11.9599L20.4433 13.5979C20.5344 13.6731 20.5958 13.7783 20.6165 13.8947C20.6372 14.011 20.6158 14.1309 20.5563 14.233L18.5771 17.6498C18.517 17.751 18.4231 17.8277 18.3119 17.8664C18.2008 17.9052 18.0796 17.9035 17.9696 17.8617L15.5096 16.8734C14.9974 17.2678 14.4368 17.5952 13.8415 17.8475L13.4737 20.4591C13.4531 20.5761 13.3926 20.6823 13.3024 20.7596C13.2122 20.8369 13.0979 20.8804 12.9792 20.8828H9.02088C8.90428 20.8805 8.7919 20.8388 8.70208 20.7644C8.61225 20.6901 8.55029 20.5874 8.52631 20.4733L8.1585 17.8617C7.56161 17.6123 7.00064 17.2844 6.49045 16.8867L4.03049 17.875C3.92053 17.9169 3.79933 17.9186 3.6882 17.8799C3.57708 17.8413 3.48314 17.7647 3.42291 17.6636L1.44377 14.2471C1.3842 14.1451 1.36286 14.0252 1.38356 13.9088C1.40426 13.7925 1.46566 13.6873 1.55678 13.6121L3.64893 11.9741C3.6043 11.6513 3.58076 11.3259 3.57846 11C3.58025 10.6788 3.60379 10.3581 3.64893 10.0401L1.55678 8.40211C1.46566 8.32687 1.40426 8.22168 1.38356 8.10534C1.36286 7.989 1.3842 7.86909 1.44377 7.76703L3.42291 4.35016C3.48308 4.24901 3.57698 4.17231 3.68811 4.13356C3.79924 4.09482 3.92048 4.0965 4.03049 4.13832L6.49045 5.1266C7.00269 4.73215 7.56325 4.4048 8.1585 4.1525L8.52631 1.54086C8.5469 1.42388 8.60747 1.31767 8.69767 1.2404C8.78788 1.16312 8.90212 1.11957 9.02088 1.11719H12.9792C13.0958 1.11946 13.2081 1.16118 13.298 1.23556C13.3878 1.30993 13.4498 1.41255 13.4737 1.52668L13.8415 4.13832C14.4392 4.38753 15.0009 4.71541 15.5117 5.11328L17.9696 4.125C18.0795 4.08314 18.2007 4.0814 18.3118 4.12006C18.423 4.15873 18.5169 4.23533 18.5771 4.33641L20.5563 7.75328C20.6158 7.85534 20.6372 7.97525 20.6165 8.09159C20.5958 8.20793 20.5344 8.31312 20.4433 8.38836L18.3511 10.0263C18.3957 10.349 18.4193 10.6743 18.4216 11Z" fill="white"/>`
     } else {
       showAboutContainer()
-      isAboutContainer = true
-      aboutButton.innerText = 'X'
+      isSettingsActive = true
+      infoText.innerText = 'SETTINGS'
+      mainContainer.style.display = 'none'
+      settingsButton.innerHTML = `<path d="M1 11C1 16.5226 5.4774 21 11 21C16.5226 21 21 16.5226 21 11C21 5.4774 16.5226 1 11 1C5.4774 1 1 5.4774 1 11ZM13.1154 7.43558V14.5644C13.1153 14.7105 13.0736 14.8535 12.9951 14.9768C12.9167 15.1 12.8048 15.1984 12.6725 15.2604C12.5402 15.3224 12.393 15.3454 12.2481 15.3268C12.1033 15.3082 11.9667 15.2487 11.8543 15.1553L7.57115 11.5913C7.48438 11.5192 7.41456 11.4288 7.36664 11.3266C7.31872 11.2244 7.29388 11.1129 7.29388 11C7.29388 10.8871 7.31872 10.7756 7.36664 10.6734C7.41456 10.5712 7.48438 10.4808 7.57115 10.4087L11.8543 6.84471C11.9667 6.75131 12.1033 6.69182 12.2481 6.67321C12.393 6.65459 12.5402 6.67763 12.6725 6.73961C12.8048 6.80159 12.9167 6.89996 12.9951 7.02321C13.0736 7.14646 13.1153 7.28949 13.1154 7.43558Z" fill="white"/>`
     }
   }
 
@@ -113,7 +136,8 @@
         offer: offer.value,
         buyer: buyer.value,
         sequenceFrom: sequenceFrom.value,
-        orderBy: orderBy.value
+        orderBy: orderBy.value,
+        numberOfResizes: numberOfResizes.value
       }
 
       parent.postMessage({ pluginMessage: { type: 'action', formData } }, '*')
@@ -138,6 +162,10 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+  * {
+    box-sizing: border-box;
+  }
+
   html {
     font-family: 'Inter', sans-serif;
     background: #2C2C2C;
@@ -155,6 +183,10 @@
     padding: 0;
   }
 
+  .settings-icon {
+    cursor: pointer;
+  }
+
   h1 { 
     font-weight: 600;
     font-size: 18px;
@@ -162,14 +194,25 @@
     text-transform: uppercase;
   }
 
-  #aboutButton {
+  #settingsButton {
     text-decoration: underline;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
 
-  #aboutButton:hover {
+  #settingsButton:hover {
     color: #0C8CE9;
+    fill: #0C8CE9;
+  }
+
+  #settingsButton path {
+    transition: all 0.2s ease-in-out;
+  }
+
+  #settingsButton:hover path {
+    color: #0C8CE9;
+    fill: #0C8CE9;
+    
   }
 
   .input-container {
@@ -340,20 +383,73 @@
 
 
   .about-container {
-    position: absolute;
-    z-index: 10;
-    background: #2C2C2C;
-    border: 1px solid #444444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid #f80000; */
     border-radius: 3px;
-    padding: 40px 34px;
-    height: 230px;
-    width: 350px;
+    /* padding: 40px 34px; */
+    height: 85%;
+    width: 100%;
     display: none;
     user-select: none;
   }
 
   .about-container a {
     color: #0C8CE9;
+  }
+
+  .about-container p {
+    /* color: #b6b6b6 */
+  }
+
+  .input-number-of-resizes-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 17px;
+  }
+
+  .input-number-of-resizes-container--label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #b6b6b6;
+    user-select: none;
+  }
+
+  .input-number-of-resizes-container--input {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    background: #2C2C2C;
+    border: 2px solid #444444;
+    border-radius: 2px;
+    padding: 4px 0;
+    padding-left: 7px;
+    height: 33px;
+    width: 40px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .input-number-of-resizes-container--input:focus {
+    border: 2px solid #0C8CE8;
+    box-shadow: inset 0px 4px 15px rgba(31, 156, 240, 0.1);
+    outline: none;
+  }
+
+  .select-number-of-resizes-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 17px;
+  }
+
+  .select-number-of-resizes-container--label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #b6b6b6;
+    user-select: none;
   }
 
 
