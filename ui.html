@@ -8,15 +8,21 @@
 
 <div class="about-container" id="aboutContainer">
   
+  <div>
   <div class="input-number-of-resizes-container">
     <p class="input-number-of-resizes-container--label">Number of resizes:</p>
     <input class="input-number-of-resizes-container--input" id="numberOfResizes" type="text" placeholder="3" value="3">
   </div>
+  <div class="input-number-of-resizes-container">
+    <p class="input-number-of-resizes-container--label">Template naming:</p>
+    <input class="input-templatenaming-checkbox--input" id="isTemplateNaming" type="checkbox" placeholder="3" value="3">
+  </div>
+</div>
 
   <div class="info-items">
       <p>Any questions? Welcome to Telegram.</p>
       <a href="https://t.me/oneheadache" target=”_blank”>@oneheadache</a>
-      <p><i>Version 1.1.0</i></p>
+      <p><i>Version 1.2.0</i></p>
   </div>
 </div>
 
@@ -76,6 +82,7 @@
   const sequenceFrom = document.getElementById('sequenceFrom')
   const orderBy = document.getElementById('orderBy')
   const numberOfResizes = document.getElementById('numberOfResizes')
+  const isTemplateNaming = document.getElementById('isTemplateNaming')
   // UI-elements
   const infoText = document.getElementById('infoText')
   const mainContainer = document.getElementById('mainContainer')
@@ -137,7 +144,8 @@
         buyer: buyer.value,
         sequenceFrom: sequenceFrom.value,
         orderBy: orderBy.value,
-        numberOfResizes: numberOfResizes.value
+        numberOfResizes: numberOfResizes.value,
+        isTemplateNaming: isTemplateNaming.checked
       }
       parent.postMessage({ pluginMessage: { type: 'action', formData } }, '*')
     } 
@@ -440,4 +448,14 @@
     color: #b6b6b6;
     user-select: none;
   }
+
+  .input-templatenaming-checkbox--input {
+    cursor: pointer;
+    height: 30px;
+  }
+
+  .input-templatenaming-checkbox--input:checked {
+    /* need to stylize checkbox here */
+  }
+
 </style>

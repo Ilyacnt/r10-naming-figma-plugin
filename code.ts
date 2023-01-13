@@ -13,10 +13,15 @@ figma.ui.onmessage = msg => {
 
   } else if (msg.type === 'action') {
 
-    const {designerColor, offer, buyer, sequenceFrom, orderBy, numberOfResizes} = msg.formData
+    const {designerColor, offer, buyer, sequenceFrom, orderBy, numberOfResizes, isTemplateNaming} = msg.formData
     
-    const renameNode = (node: SceneNode, number: String | Number) => {
-      node.name = `${offer}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
+    const renameNode = (node: SceneNode, number: String | Number, isTemplateNaming: Boolean) => {  
+      if (!isTemplateNaming) {
+        node.name = `${offer}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
+      } else {
+        // @ts-ignore
+        node.name = `${findIdentificationLayer(node, offer)}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
+      }
     }
 
     figma.clientStorage.setAsync('savedData', {
@@ -24,9 +29,10 @@ figma.ui.onmessage = msg => {
       offer,
       buyer,
       orderBy,
-      numberOfResizes
+      numberOfResizes,
+      isTemplateNaming
     })
-
+    
     let selectedFrames = figma.currentPage.selection.filter(frame => frame.type === 'FRAME') as FrameNode[]
 
     if (selectedFrames.length <= 0) {
@@ -42,7 +48,7 @@ figma.ui.onmessage = msg => {
     let counter = sequenceFrom
     let counterResizes = 1
     selectedFrames.forEach(frame => {
-      renameNode(frame, counter)
+      renameNode(frame, counter, isTemplateNaming)
       if (counterResizes < numberOfResizes) {
         counterResizes++
         counter = counter
@@ -78,4 +84,23 @@ const sortFramesLeftToRight = (frames: FrameNode[]) => {
     if (a.x < b.x) return -1;
     if (a.x > b.x) return 1;
   })
+}
+
+const findIdentificationLayer = (frame: FrameNode, offer: string) => {
+  // @ts-ignore
+  const identificationNode = frame.findOne(node => {
+    if (node.type === "TEXT" && node.name[0] === '#') {
+      return true
+    } else {
+      return false
+    }
+  })
+
+  if (identificationNode) {
+    // @ts-ignore
+    return identificationNode.name.substring(1)
+  } else {
+    return offer
+  }
+  
 }
