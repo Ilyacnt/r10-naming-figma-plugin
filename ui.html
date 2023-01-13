@@ -139,12 +139,10 @@
         orderBy: orderBy.value,
         numberOfResizes: numberOfResizes.value
       }
-
       parent.postMessage({ pluginMessage: { type: 'action', formData } }, '*')
     } 
 
   }
-
 
   // This function restore data from last time run plugin
   onmessage = (event) => {
@@ -155,7 +153,6 @@
     buyer.value = lastRunData.buyer
     orderBy.value = lastRunData.orderBy
   }
-
 
 </script>
 
@@ -211,8 +208,7 @@
 
   #settingsButton:hover path {
     color: #0C8CE9;
-    fill: #0C8CE9;
-    
+    fill: #0C8CE9;    
   }
 
   .input-container {
@@ -293,7 +289,6 @@
     border: 2px solid #DE0000 !important;
   }
 
-
   .select-sequence-container {
     display: flex;
     justify-content: space-between;
@@ -334,7 +329,6 @@
     box-shadow: inset 0px 4px 15px rgba(31, 156, 240, 0.1);
     outline: none;
   }
-
 
   .logo-buttons-container {
     display: flex;
@@ -381,7 +375,6 @@
     border: 1px solid #838383;
   }
 
-
   .about-container {
     display: flex;
     flex-direction: column;
@@ -397,10 +390,6 @@
 
   .about-container a {
     color: #0C8CE9;
-  }
-
-  .about-container p {
-    /* color: #b6b6b6 */
   }
 
   .input-number-of-resizes-container {
@@ -451,6 +440,4 @@
     color: #b6b6b6;
     user-select: none;
   }
-
-
 </style>
