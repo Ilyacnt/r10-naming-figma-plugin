@@ -1,3 +1,5 @@
+enum TypeOfNaming {"isGANaming", "isGATempNaming", "isOtherOffersNaming"}
+
 figma.showUI(__html__, {width: 470, height: 420});
 
 figma.clientStorage.getAsync('savedData').then(data => {
@@ -13,14 +15,19 @@ figma.ui.onmessage = msg => {
 
   } else if (msg.type === 'action') {
 
-    const {designerColor, offer, buyer, sequenceFrom, orderBy, numberOfResizes, isTemplateNaming} = msg.formData
+    const {designerColor, offer, buyer, sequenceFrom, orderBy, numberOfResizes, typeOfNaming} = msg.formData
     
-    const renameNode = (node: SceneNode, number: String | Number, isTemplateNaming: Boolean) => {  
-      if (!isTemplateNaming) {
+    const renameNode = (node: SceneNode, number: String | Number, typeOfNaming: TypeOfNaming) => {  
+      if (typeOfNaming = TypeOfNaming.isGANaming) {
         node.name = `${offer}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
-      } else {
+      } else if (typeOfNaming = TypeOfNaming.isGATempNaming) {
         // @ts-ignore
         node.name = `${findIdentificationLayer(node, offer)}_${buyer}_${designerColor}_${number}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
+      } else if (typeOfNaming = TypeOfNaming.isOtherOffersNaming) {
+        // node.name = `${buyer}_${designerColor}_${number}_${aspectRatio(node.width, node.height)}`
+        node.name = `{HUI}`
+      } else {
+        console.log('ERROR')
       }
     }
 
@@ -30,7 +37,7 @@ figma.ui.onmessage = msg => {
       buyer,
       orderBy,
       numberOfResizes,
-      isTemplateNaming
+      typeOfNaming
     })
     
     let selectedFrames = figma.currentPage.selection.filter(frame => frame.type === 'FRAME') as FrameNode[]
@@ -48,7 +55,7 @@ figma.ui.onmessage = msg => {
     let counter = sequenceFrom
     let counterResizes = 1
     selectedFrames.forEach(frame => {
-      renameNode(frame, counter, isTemplateNaming)
+      renameNode(frame, counter, typeOfNaming)
       if (counterResizes < numberOfResizes) {
         counterResizes++
         counter = counter
@@ -104,3 +111,17 @@ const findIdentificationLayer = (frame: FrameNode, offer: string) => {
   }
   
 }
+
+// @ts-ignore
+const gcd = (a, b) => {
+  return b
+    ? gcd(b, a % b)
+    : a;
+};
+
+// @ts-ignore
+const aspectRatio = (width, height)  => {
+  const divisor = gcd(width, height)
+
+  return `${width / divisor}x${height / divisor}`
+};

@@ -13,9 +13,14 @@
     <p class="input-number-of-resizes-container--label">Number of resizes:</p>
     <input class="input-number-of-resizes-container--input" id="numberOfResizes" type="text" placeholder="3" value="3">
   </div>
-  <div class="input-number-of-resizes-container">
-    <p class="input-number-of-resizes-container--label">Template naming:</p>
-    <input class="input-templatenaming-checkbox--input" id="isTemplateNaming" type="checkbox" placeholder="3" value="3">
+  <p class="input-templatenaming-checkbox--input">Choose type of naming:</p>
+  <div class="radio-container">
+    <input class="input-templatenaming-checkbox--input" id="isGANaming" type="radio" name="typeOfNaming">
+    <label class="input-number-of-resizes-container--label" for="isGANaming">- GA</p>
+    <input class="input-templatenaming-checkbox--input" id="isGATempNaming" type="radio" name="typeOfNaming">
+    <label class="input-number-of-resizes-container--label" for="isGATempNaming">- GA Temp</p>
+    <input class="input-templatenaming-checkbox--input" id="isOtherOffersNaming" type="radio" name="typeOfNaming">
+    <label class="input-number-of-resizes-container--label" for="isOtherOffersNaming">- Other offers</p>
   </div>
 </div>
 
@@ -68,13 +73,33 @@
     
   <div class="buttons-container">
     <button id="cancelButton" class="button button-secondary">Cancel</button>
-    <button id="actionButton" class="button button-primary">Rename Selected Frames</button>
   </div>
+    <button id="actionButton" class="button button-primary">Rename Selected Frames</button>
 </div>
 
 </div>
 
 <script>
+  // Getting radio element value
+  const isGANaming = document.getElementById('isGANaming')
+  const isGATempNaming = document.getElementById('isGATempNaming')
+  const isOtherOffersNaming = document.getElementById('isOtherOffersNaming')
+
+
+
+  let typeOfNaming
+  const radios = document.getElementsByName('typeOfNaming')
+
+
+  for (let i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+      typeOfNaming = radios[i].id
+      break;
+    } else {
+      typeOfNaming = 'isGANaming'
+    }
+  }
+
   // Form UI-elements with data
   const designerColor = document.getElementById('designerColor')
   const offer = document.getElementById('offer')
@@ -82,7 +107,6 @@
   const sequenceFrom = document.getElementById('sequenceFrom')
   const orderBy = document.getElementById('orderBy')
   const numberOfResizes = document.getElementById('numberOfResizes')
-  const isTemplateNaming = document.getElementById('isTemplateNaming')
   // UI-elements
   const infoText = document.getElementById('infoText')
   const mainContainer = document.getElementById('mainContainer')
@@ -145,7 +169,7 @@
         sequenceFrom: sequenceFrom.value,
         orderBy: orderBy.value,
         numberOfResizes: numberOfResizes.value,
-        isTemplateNaming: isTemplateNaming.checked
+        typeOfNaming: typeOfNaming
       }
       parent.postMessage({ pluginMessage: { type: 'action', formData } }, '*')
     } 
@@ -160,6 +184,14 @@
     offer.value = lastRunData.offer
     buyer.value = lastRunData.buyer
     orderBy.value = lastRunData.orderBy
+    
+    for (let i = 0, length = radios.length; i < length; i++) {
+      console.log(lastRunData.typeOfNaming);
+      if (radios[i].id = lastRunData.typeOfNaming) {
+        radios[i].checked = true
+        break
+      }
+    }
   }
 
 </script>
@@ -450,12 +482,17 @@
   }
 
   .input-templatenaming-checkbox--input {
-    cursor: pointer;
-    height: 30px;
+
+    /* cursor: pointer; */
+    /* height: 30px; */
   }
 
   .input-templatenaming-checkbox--input:checked {
     /* need to stylize checkbox here */
+  }
+
+  .radio-container {
+    display: inline;
   }
 
 </style>
