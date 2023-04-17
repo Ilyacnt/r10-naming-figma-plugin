@@ -1,4 +1,4 @@
-figma.showUI(__html__, {width: 470, height: 420});
+figma.showUI(__html__, {width: 570, height: 520});
 
 figma.clientStorage.getAsync('savedData').then(data => {
   figma.ui.postMessage(data)
