@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Tab from "./Tab";
 
 type Props = {
-	currentTab: (e) => void
+	tabHandler: (e) => void
 }
 
-const Tabs: React.FC<Props> = ({ currentTab }: Props) => {
+const Tabs: React.FC<Props> = ({ tabHandler }: Props) => {
   const tabsData = [
     {
       id: 1,
@@ -26,7 +26,7 @@ const Tabs: React.FC<Props> = ({ currentTab }: Props) => {
     <div className="tabs-container">
       <div id="tabs" className="tabs">
         {tabsData.map((tab) => (
-          <Tab key={tab.id} tab={tab} currentTab={currentTab} />
+          <Tab key={tab.id} tab={tab} currentTab={tabHandler} />
         ))}
         <span className="glider"></span>
       </div>

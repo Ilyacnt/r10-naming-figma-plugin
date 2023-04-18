@@ -114,6 +114,9 @@ input[id="radio-3"]:checked~.glider {
 }
 
 /* input component */
+label {
+    user-select: none;
+}
 
 .input {
     width: 100%;
@@ -213,7 +216,7 @@ input[id="radio-3"]:checked~.glider {
     border: none;
     font-size: 1rem;
     font-weight: 500;
-    display: none;
+    /* display: none; */
     width: 100%;
 }
 
@@ -229,7 +232,7 @@ input[id="radio-3"]:checked~.glider {
     width: 463px;
     max-height: 200px;
     overflow-y: scroll;
-    display: none;
+    /* display: none; */
 }
 
 .select-body::-webkit-scrollbar {
