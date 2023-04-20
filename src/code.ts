@@ -1,3 +1,6 @@
+import { generateCode, sortFramesLeftToRight, sortFramesTopToBottom } from "./figmaAPI/utils";
+
+
 figma.showUI(__html__, {width: 570, height: 520});
 
 figma.clientStorage.getAsync('savedData').then(data => {
@@ -5,6 +8,7 @@ figma.clientStorage.getAsync('savedData').then(data => {
 })
 
 
+let stateUI = null
 figma.ui.onmessage = msg => {
 
   if (msg.type === 'cancel') {
@@ -60,31 +64,43 @@ figma.ui.onmessage = msg => {
     })
 
     figma.notify('Frames renamed successfully')  
-  }
-
-};
-
-const sortFramesTopToBottom = (frames: FrameNode[]) => {
-  // @ts-ignore
-  return frames.sort((a, b) => {
-    if (a.x < b.x) return -1;
-    if (a.x > b.x) return 1;
-
-    if (a.y < b.y) return -1;
-    if (a.y > b.y) return 1;
-  })
-}
-
-const sortFramesLeftToRight = (frames: FrameNode[]) => {
-  // @ts-ignore
-  return frames.sort((a, b) => {
-    if (a.y < b.y) return -1;
-    if (a.y > b.y) return 1;
+  } else if (msg.type === 'default') {
+    const { offer, buyer, designerColor, from, orderBy, creoType } = stateUI.default
     
-    if (a.x < b.x) return -1;
-    if (a.x > b.x) return 1;
-  })
-}
+    const renameNode = (node: SceneNode, code: String | Number) => {
+      node.name = `${offer}_${buyer}_${designerColor}_${code}_${creoType}_${(node.width).toFixed(0)}x${(node.height).toFixed(0)}`
+    }
+
+    let selectedFrames = figma.currentPage.selection.filter(frame => frame.type === 'FRAME') as FrameNode[]
+
+    if (selectedFrames.length <= 0) {
+
+      figma.notify('Nothing selected')
+
+    } else if (orderBy === 'Top to Bottom') {
+      sortFramesTopToBottom(selectedFrames)
+    } else if (orderBy === 'Left to Right') {
+      sortFramesLeftToRight(selectedFrames)
+    }
+
+
+    let numberOfResizes = 3 // ТУТ ПОМЕНЯТЬ НА ТО, ЧТО ПРИХОДИТ С UI
+
+    let code = ''
+    let counter = 1
+    let counterResizes = 1
+    selectedFrames.forEach(frame => {
+      code = generateCode()
+      renameNode(frame, code)
+    })
+
+
+  } else if (msg.type === 'save') {
+    figma.clientStorage.setAsync('savedData', msg.state)
+    stateUI = msg.state
+  };
+
+
 
 const findIdentificationLayer = (frame: FrameNode, offer: string) => {
   // @ts-ignore

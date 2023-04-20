@@ -1,21 +1,25 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-type Props = {
+type InputProps = {
   label: string;
   placeholder: string;
+  onInput: (value: any) => any;
+  value: string;
+  attrs?: any[]
 };
 
-const Input: React.FC<Props> = ({ label, placeholder }) => {
-  const [inputValue, setInputValue] = useState("");
+const Input: React.FC<InputProps> = ({ label, placeholder,  onInput, value, ...attrs }) => {
+  const dispatch = useDispatch()
 
   return (
-    <div className="input">
+    <div className="input" {...attrs}>
       <label htmlFor="test">{label}</label>
       <input
         type="text"
         placeholder={placeholder}
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
+        value={value}
+        onChange={e => dispatch(onInput(e.target.value))}
       />
     </div>
   );

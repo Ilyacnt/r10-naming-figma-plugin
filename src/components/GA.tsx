@@ -2,7 +2,7 @@ import React from 'react'
 
 const GA = () => {
   return (
-    <div>GA</div>
+    <div>This tab in development right now :(</div>
   )
 }
 

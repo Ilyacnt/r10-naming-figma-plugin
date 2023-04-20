@@ -1,20 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
 export type InputType = "Select" | "Search";
-type Props = {
+type SelectProps = {
   type: InputType;
   label: string;
   placeholder: string;
   options: Array<string>;
+  onSelect: (value: any) => any;
+  value: string;
 };
 
 // @ts-ignore
-const Select: React.FC<Props> = ({ type, label, placeholder, options }) => {
-  
-
+const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSelect, value }) => {
+  const dispatch = useDispatch()
   const [filtredOffers, setFiltredOffers] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [selectValue, setSelectValue] = useState(null);
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
   };
@@ -36,7 +37,7 @@ const Select: React.FC<Props> = ({ type, label, placeholder, options }) => {
   };
 
   const optionHandler = (e) => {
-    setSelectValue(e.target.innerText);
+    dispatch(onSelect(e.target.innerText));
     setSelectBodyToggle(false);
   };
 
@@ -53,7 +54,8 @@ const Select: React.FC<Props> = ({ type, label, placeholder, options }) => {
 
   useEffect(() => {
     filterListSearch(options);
-  }, [searchValue]);
+  }, [searchValue, options]);
+
 
   return (
     <div className="select">
@@ -79,7 +81,7 @@ const Select: React.FC<Props> = ({ type, label, placeholder, options }) => {
             />
           ) : (
             <span className="select-placeholder" id="search-placeholder">
-              {selectValue ? selectValue : "Select..."}
+              {value ? value : "Select..."}
             </span>
           )}
 
@@ -101,7 +103,11 @@ const Select: React.FC<Props> = ({ type, label, placeholder, options }) => {
           </svg>
         </div>
         {selectBodyToggle && (
-          <div className="select-body" id="select-body" style={{width: '300px'}}>
+          <div
+            className="select-body"
+            id="select-body"
+            style={{ width: "300px" }}
+          >
             {filtredOffers.map((offer, i) => {
               return (
                 <div key={i} className="select-option" onClick={optionHandler}>

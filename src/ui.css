@@ -270,3 +270,48 @@ label {
 }
 
 /* /select component */
+
+/* button component */
+
+.button {
+    padding: 10px;
+    background: none;
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    outline: none;
+}
+
+.button:focus {
+    outline: 2px solid #0C8CE8;
+}
+
+.button-primary {
+    border: 1px solid #0071C2;
+    background: #0C8CE9;
+}
+
+.button-secondary {
+    border: 1px solid #FFFFFF;
+}
+
+.button-primary:hover {
+    background: #0071C2;
+}
+
+.button-secondary:hover {
+    color: #838383;
+    border: 1px solid #838383;
+}
+
+/* /button component */
+
+
+.buttons-container {
+    margin-top: 20px;
+    gap: 20px;
+    display: flex;
+    align-self: flex-end;
+    justify-self: flex-end;
+}

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as ReactDOM from "react-dom";
 import "./ui.css";
 import Tabs from "./components/Tabs";
 import Default from "./components/Default";
 import Settings from "./components/Settings";
 import GA from "./components/GA";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { restoreLastSession } from "./store/restoreLastSession"
 
 enum TabsValues {
   Default = "Default",
@@ -17,6 +20,10 @@ const App = () => {
   const tabHandler = (e) => {
     setCurrentTab(e.target.innerText);
   };
+
+  useEffect(() => {
+    restoreLastSession()
+  }, [])
 
   const renderCurrentTab = () => {
     switch (currentTab) {
@@ -32,10 +39,10 @@ const App = () => {
   };
 
   return (
-    <>
+    <Provider store={store}>
       <Tabs tabHandler={tabHandler} />
       {renderCurrentTab()}
-    </>
+    </Provider>
   );
 };
 
