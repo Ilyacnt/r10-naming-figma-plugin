@@ -17,10 +17,6 @@ export function setCreoType(creoTypes: string) {
   return { type: ReducerDefaultActionTypes.setCreoType, payload: creoTypes };
 }
 
-export function setFrom(from: string) {
-  return { type: ReducerDefaultActionTypes.setFrom, payload: from };
-}
-
 export function setOrderBy(orderBy: string) {
   return { type: ReducerDefaultActionTypes.setOrderBy, payload: orderBy };
 }

@@ -3,6 +3,7 @@ import { reducerDefault } from './reducerDefault'
 import { reducerGA } from './reducerGA'
 import { reducerOffers } from './reducerOffers'
 import thunk from 'redux-thunk'
+import { reducerSettings } from './reducerSettings'
 
 
 
@@ -15,7 +16,7 @@ const sessionSaver = store => next => action => {
 
 
 
-export const store = createStore(combineReducers({default: reducerDefault, ga: reducerGA, offers: reducerOffers}), applyMiddleware(thunk, sessionSaver))
+export const store = createStore(combineReducers({default: reducerDefault, ga: reducerGA, offers: reducerOffers, settings: reducerSettings}), applyMiddleware(thunk, sessionSaver))
 
 
 export type StateType = ReturnType<typeof store.getState>

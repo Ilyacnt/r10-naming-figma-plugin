@@ -18,5 +18,5 @@ export function setFrom(buyer: string) {
 }
 
 export function setOrderBy(buyer: string) {
-  return { type: ReducerGAActionTypes.setFrom, payload: buyer };
+  return { type: ReducerGAActionTypes.setOrderBy, payload: buyer };
 }

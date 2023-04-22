@@ -3,7 +3,6 @@ export interface ReducerDefaultState {
   designerColor: string;
   buyer: string;
   creoType: string;
-  from: number;
   orderBy: string;
 }
 
@@ -13,7 +12,6 @@ export enum ReducerDefaultActionTypes {
   setDesignerColor = "SET_DESIGNER_COLOR_DEFAULT",
   setBuyer = "SET_BUYER_DEFAULT", 
   setCreoType = "SET_CREO_TYPE_DEFAULT",
-  setFrom = "SET_FROM_DEFAULT",
   setOrderBy = "SET_ORDER_BY_DEFAULT"
 };
 
@@ -27,7 +25,6 @@ const initialState: ReducerDefaultState = {
   creoType: 'stat',
   designerColor: "",
   buyer: "",
-  from: 1,
   orderBy: "Top to Bottom"
 };
 
@@ -44,8 +41,6 @@ export const reducerDefault = (state = initialState, action: any): ReducerDefaul
           return { ...state, buyer: action.payload };
     case ReducerDefaultActionTypes.setCreoType:
       return { ...state, creoType: action.payload };
-    case ReducerDefaultActionTypes.setFrom:
-      return { ...state, from: action.payload };
     case ReducerDefaultActionTypes.setOrderBy:
       return { ...state, orderBy: action.payload };
     default:

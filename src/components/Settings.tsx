@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import Input from "../ui/Input";
+import { useSelector } from "react-redux";
+import { setNumberOfResizes } from '../store/reducerSettingsActions'
 
 const Settings = () => {
-  return (
-    <div>Settings</div>
-  )
-}
+  const { numberOfResizes } = useSelector((state) => state.settings)
 
-export default Settings
+
+  return (
+    <div className="main-container">
+      <Input
+        label="Number&nbsp;of&nbsp;resizes: "
+        placeholder="3"
+        onInput={setNumberOfResizes}
+        value={numberOfResizes}
+      />
+    </div>
+  );
+};
+
+export default Settings;

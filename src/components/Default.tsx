@@ -66,13 +66,7 @@ const Default = () => {
         value={creoType}
       />
       <div style={{ display: "flex" }}>
-        <Input
-          style={{ width: "150px", marginRight: "10px" }}
-          label="From:"
-          placeholder="1"
-          value={from}
-          onInput={setFrom}
-        />
+        {/* LOGO HERE */}
         <Select
           type="Search"
           label="Order&nbsp;by:"

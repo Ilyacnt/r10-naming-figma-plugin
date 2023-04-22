@@ -100,17 +100,17 @@ input[id="radio-3"]:checked~.glider {
     flex-direction: column;
     width: 100%;
     /* manual handle */
-    height: 400px;
+    /* height: 400px; */
     /* border: 1px solid rgb(114, 70, 70); */
     gap: 10px;
 }
 
 .ga-container {
-    display: none;
+    /* display: none; */
 }
 
 .settings-container {
-    display: none;
+    /* display: none; */
 }
 
 /* input component */

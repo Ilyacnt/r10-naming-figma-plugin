@@ -14,7 +14,7 @@ const Input: React.FC<InputProps> = ({ label, placeholder,  onInput, value, ...a
 
   return (
     <div className="input" {...attrs}>
-      <label htmlFor="test">{label}</label>
+      <label>{label}</label>
       <input
         type="text"
         placeholder={placeholder}
