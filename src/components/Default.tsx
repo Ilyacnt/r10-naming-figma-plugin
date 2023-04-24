@@ -20,7 +20,7 @@ const Default = () => {
   );
   const offersData = useSelector((state) => state.offers.offers);
   const dispatch = useDispatch();
-  const creativesTypeData = ["stat", "prod", "3d", "neu"];
+  const creativesTypeData = ["stat", "prod", "3d", "neu", "rekl"];
   const orderByData = ["Top to Bottom", "Left to Right", "Layer Panel"];
 
   const state = useSelector((state) => state);
