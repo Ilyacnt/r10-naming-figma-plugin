@@ -9,9 +9,9 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { restoreLastSession } from "./store/restoreLastSession"
 
-enum TabsValues {
+export enum TabsValues {
   Default = "Default",
-  GA = "GA",
+  GA = "GA/Hoff",
   Settings = "Settings",
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Tab from "./Tab";
+import { TabsValues } from "../ui";
 
 type Props = {
 	tabHandler: (e) => void
@@ -9,15 +10,15 @@ const Tabs: React.FC<Props> = ({ tabHandler }: Props) => {
   const tabsData = [
     {
       id: 1,
-      value: "Default",
+      value: TabsValues.Default,
     },
     {
       id: 2,
-      value: "GA",
+      value: TabsValues.GA,
     },
     {
       id: 3,
-      value: "Settings",
+      value: TabsValues.Settings,
     },
   ];
 

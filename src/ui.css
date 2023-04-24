@@ -99,10 +99,8 @@ input[id="radio-3"]:checked~.glider {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* manual handle */
-    /* height: 400px; */
-    /* border: 1px solid rgb(114, 70, 70); */
     gap: 10px;
+    overflow-y: hidden;
 }
 
 .ga-container {
@@ -110,7 +108,11 @@ input[id="radio-3"]:checked~.glider {
 }
 
 .settings-container {
-    /* display: none; */
+    justify-content: space-between;
+}
+
+.version {
+    font-style: italic;
 }
 
 /* input component */

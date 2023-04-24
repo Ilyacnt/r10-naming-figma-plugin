@@ -12,8 +12,15 @@ type SelectProps = {
 };
 
 // @ts-ignore
-const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSelect, value }) => {
-  const dispatch = useDispatch()
+const Select: React.FC<SelectProps> = ({
+  type,
+  label,
+  placeholder,
+  options,
+  onSelect,
+  value,
+}) => {
+  const dispatch = useDispatch();
   const [filtredOffers, setFiltredOffers] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const searchHandler = (e) => {
@@ -22,8 +29,13 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
 
   const selectRef = useRef(null);
   const selectInputRef = useRef(null);
+  const selectHead = useRef(null);
 
   const [selectBodyToggle, setSelectBodyToggle] = useState(false);
+
+  useEffect(() => {
+    // selectBody.current.style.width =  `${selectHead.current.clientWidth}px`
+  }, [selectBodyToggle]);
 
   const closeSelectBody = (e) => {
     if (
@@ -56,13 +68,13 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
     filterListSearch(options);
   }, [searchValue, options]);
 
-
   return (
     <div className="select">
       <div className="select-label">{label}</div>
       <div className="select-container" ref={selectRef}>
         <div
           className="select-head"
+          ref={selectHead}
           id="select-head"
           onClick={() => {
             setSelectBodyToggle(true);
@@ -105,8 +117,8 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
         {selectBodyToggle && (
           <div
             className="select-body"
+            style={{width: `${selectHead.current.clientWidth - 30}px`}}
             id="select-body"
-            style={{ width: "300px" }}
           >
             {filtredOffers.map((offer, i) => {
               return (

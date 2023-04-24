@@ -8,13 +8,16 @@ const Settings = () => {
 
 
   return (
-    <div className="main-container">
+    <div className="main-container settings-container">
       <Input
         label="Number&nbsp;of&nbsp;resizes: "
         placeholder="3"
         onInput={setNumberOfResizes}
         value={numberOfResizes}
       />
+      <span className="version">
+        Version 2.0.0
+      </span>
     </div>
   );
 };
