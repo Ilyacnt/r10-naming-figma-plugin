@@ -11,7 +11,7 @@ import { restoreLastSession } from "./store/restoreLastSession"
 
 export enum TabsValues {
   Default = "Default",
-  GA = "GA/Hoff",
+  GA = "GA",
   Settings = "Settings",
 }
 
