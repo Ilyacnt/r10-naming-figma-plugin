@@ -1,0 +1,45 @@
+{
+    "name": "r10-naming-figma-plugin-new",
+    "version": "1.0.0",
+    "description": "This plugin helps with creatives naming",
+    "main": "src/figma/code.ts",
+    "scripts": {
+        "start": "npx webpack --mode=development --watch",
+        "build": "webpack",
+        "watch": "npm run build -- --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/preset-env": "^7.22.10",
+        "@babel/preset-react": "^7.22.5",
+        "@figma/plugin-typings": "^1.73.0",
+        "@types/node": "^20.4.9",
+        "@types/react": "^18.2.20",
+        "@types/react-dom": "^18.2.7",
+        "babel-loader": "^9.1.3",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.8.1",
+        "file-loader": "^6.2.0",
+        "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
+        "html-webpack-plugin": "^5.5.3",
+        "inline-chunk-html-plugin": "^1.1.1",
+        "react-dev-utils": "^12.0.1",
+        "style-loader": "^3.3.3",
+        "ts-loader": "^9.4.4",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true,
+        "printWidth": 120
+    }
+}

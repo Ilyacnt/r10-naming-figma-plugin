@@ -1,0 +1,13 @@
+{
+    "name": "R10 Helper",
+    "id": "1271825803195789912",
+    "api": "1.0.0",
+    "main": "dist/code.js",
+    "ui": "dist/ui.html",
+    "capabilities": [],
+    "enableProposedApi": false,
+    "editorType": ["figma"],
+    "networkAccess": {
+        "allowedDomains": ["none"]
+    }
+}
