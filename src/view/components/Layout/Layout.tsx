@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Layout.module.css'
 import { ConfigProvider, theme, Input } from 'antd'
+import TabsPanel from '../TabsPanel/TabsPanel'
 
 const Layout = () => {
     return (
@@ -10,7 +11,7 @@ const Layout = () => {
             }}
         >
             <div className={styles.Layout}>
-                <Input />
+                <TabsPanel />
             </div>
         </ConfigProvider>
     )
