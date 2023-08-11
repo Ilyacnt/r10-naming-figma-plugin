@@ -8,6 +8,7 @@
     "enableProposedApi": false,
     "editorType": ["figma"],
     "networkAccess": {
-        "allowedDomains": ["none"]
+        "allowedDomains": ["https://fonts.googleapis.com"],
+        "reasoning": ""
     }
 }
