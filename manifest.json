@@ -1,6 +1,6 @@
 {
-    "name": "R10 Helper",
-    "id": "1271825803195789912",
+    "name": "Rocket10 Naming System",
+    "id": "1192447366002397758",
     "api": "1.0.0",
     "main": "dist/code.js",
     "ui": "dist/ui.html",
