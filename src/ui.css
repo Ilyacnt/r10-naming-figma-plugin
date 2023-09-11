@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
 :root {
-    --primary-color: #FFFFFF;
-    --secondary-color: #0C8CE9;
+    --primary-color: #ffffff;
+    --secondary-color: #0c8ce9;
     --tertiary-color: #444444;
-    --background-color: #29292A;
+    --background-color: #29292a;
     --tab-width: 120px;
     --tab-height: 25px;
 }
@@ -40,7 +40,7 @@ html {
     border-radius: 99px;
     border: 2px solid white;
     margin-bottom: 20px;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .tabs:hover {
@@ -52,7 +52,7 @@ html {
     z-index: 2;
 }
 
-input[type="radio"] {
+input[type='radio'] {
     display: none;
 }
 
@@ -68,20 +68,20 @@ input[type="radio"] {
     transition: color 0.15s ease-in;
 }
 
-input[type="radio"]:checked+label {
+input[type='radio']:checked + label {
     color: var(--primary-color);
 }
 
-input[id="radio-1"]:checked~.glider {
+input[id='radio-1']:checked ~ .glider {
     transform: translateX(0);
 }
 
-input[id="radio-2"]:checked~.glider {
+input[id='radio-2']:checked ~ .glider {
     transform: translateX(100%);
 }
 
-input[id="radio-3"]:checked~.glider {
-    transform: translateX(200%);
+input[id='radio-3']:checked ~ .glider {
+    transform: translateX(100%);
 }
 
 .glider {
@@ -137,7 +137,7 @@ label {
     border-radius: 5px;
     padding: 10px 10px;
     width: 100%;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .input input::placeholder {
@@ -198,7 +198,7 @@ label {
     border-radius: 5px;
     padding: 10px;
     width: 100%;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .select-head:hover {
@@ -256,7 +256,7 @@ label {
 
 .select-option {
     padding: 10px 10px;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .select-option:hover {
@@ -278,7 +278,7 @@ label {
 .button {
     padding: 10px;
     background: none;
-    color: #FFFFFF;
+    color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
@@ -286,20 +286,20 @@ label {
 }
 
 .button:focus {
-    outline: 2px solid #0C8CE8;
+    outline: 2px solid #0c8ce8;
 }
 
 .button-primary {
-    border: 1px solid #0071C2;
-    background: #0C8CE9;
+    border: 1px solid #0071c2;
+    background: #0c8ce9;
 }
 
 .button-secondary {
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
 }
 
 .button-primary:hover {
-    background: #0071C2;
+    background: #0071c2;
 }
 
 .button-secondary:hover {
@@ -308,7 +308,6 @@ label {
 }
 
 /* /button component */
-
 
 .buttons-container {
     margin-top: 20px;

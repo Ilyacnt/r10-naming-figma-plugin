@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux'
 import { fetchOffers } from '../store/reducerOffersActions'
 import { setCreoType, setDesignerColor, setOffer, setOrderBy } from '../store/reducerDefaultActions'
 import { setBuyer } from '../store/reducerDefaultActions'
-import { setFrom } from '../store/reducerDefaultActions'
 import Button from '../ui/Button'
 
 const Default = () => {
