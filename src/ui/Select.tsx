@@ -29,6 +29,10 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
         // selectBody.current.style.width =  `${selectHead.current.clientWidth}px`
     }, [selectBodyToggle])
 
+    const selectBodyToggleHandler = () => {
+        setSelectBodyToggle(true)
+    }
+
     const closeSelectBody = (e) => {
         if (
             selectRef.current &&
@@ -63,14 +67,7 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
         <div className="select">
             <div className="select-label">{label}</div>
             <div className="select-container" ref={selectRef}>
-                <div
-                    className="select-head"
-                    ref={selectHead}
-                    id="select-head"
-                    onClick={() => {
-                        setSelectBodyToggle(true)
-                    }}
-                >
+                <div className="select-head" ref={selectHead} id="select-head" onClick={selectBodyToggleHandler}>
                     {selectBodyToggle ? (
                         <input
                             ref={selectInputRef}
