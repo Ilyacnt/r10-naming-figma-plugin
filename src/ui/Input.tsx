@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { useAppDispatch } from '../store/hooks'
 
 type InputProps = {
     label: string
@@ -11,7 +11,7 @@ type InputProps = {
 }
 
 const Input: React.FC<InputProps> = ({ label, placeholder, onInput, value, maxLength, ...attrs }) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     return (
         <div className="input" {...attrs}>

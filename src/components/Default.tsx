@@ -1,28 +1,22 @@
 import React, { useEffect } from 'react'
 import Select from '../ui/Select'
 import Input from '../ui/Input'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
 import { fetchOffers } from '../store/reducerOffersActions'
 import { setCreoType, setDesignerColor, setOffer, setOrderBy } from '../store/reducerDefaultActions'
 import { setBuyer } from '../store/reducerDefaultActions'
 import Button from '../ui/Button'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 
 const Default = () => {
-    // @ts-ignore
-    const { offer, designerColor, buyer, creoType, from, orderBy } = useSelector((state) => state.default)
-    // @ts-ignore
-    const offersData = useSelector((state) => state.offers.offers)
-    const dispatch = useDispatch()
+    const { offer, designerColor, buyer, creoType, orderBy } = useAppSelector((state) => state.default)
+    const offersData = useAppSelector((state) => state.offers.offers)
+    const dispatch = useAppDispatch()
     const creativesTypeData = ['stat', 'neu', 'rekl', 'krsl', 'prod', 'fvr']
     const orderByData = ['Top to Bottom', 'Left to Right', 'Layer Panel']
-
-    const state = useSelector((state) => state)
 
     useEffect(() => {
         // @ts-ignore
         dispatch(fetchOffers())
-        // console.log(state);
     }, [])
 
     const renameHandle = () => {
@@ -59,7 +53,6 @@ const Default = () => {
                 value={creoType}
             />
             <div style={{ display: 'flex' }}>
-                {/* LOGO HERE */}
                 <Select
                     type="Search"
                     label="Order&nbsp;by:"

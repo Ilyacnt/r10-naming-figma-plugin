@@ -1,25 +1,18 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react'
 
 type ButtonProps = {
-  children?: any;
-  attrs?: any[];
-  onButton?: any;
-  type: 'primary' |'secondary'
-};
+    children?: any
+    attrs?: any[]
+    onButton?: any
+    type: 'primary' | 'secondary'
+}
 
 const Button: React.FC<ButtonProps> = ({ type, onButton, children, attrs }) => {
-  const dispatch = useDispatch();
+    return (
+        <button className={`button button-${type}`} onClick={() => onButton()} {...attrs}>
+            {children}
+        </button>
+    )
+}
 
-  return (
-    <button 
-        className={`button button-${type}`} 
-        onClick={() => onButton()}
-        {...attrs}
-    >
-      {children}
-    </button>
-  );
-};
-
-export default Button;
+export default Button

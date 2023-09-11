@@ -1,6 +1,6 @@
 export interface ReducerSettingsState {
     numberOfResizes: number | string
-    definedUniqueCode: number | string
+    definedUniqueCode: string
 }
 
 export enum ReducerSettingsActionTypes {

@@ -199,6 +199,7 @@ label {
     padding: 10px;
     width: 100%;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .select-head:hover {

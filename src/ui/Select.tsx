@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../store/hooks'
 
 export type InputType = 'Select' | 'Search'
 type SelectProps = {
@@ -11,10 +11,9 @@ type SelectProps = {
     value: string
 }
 
-// @ts-ignore
 const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSelect, value }) => {
-    const dispatch = useDispatch()
-    const [filtredOffers, setFiltredOffers] = useState([])
+    const dispatch = useAppDispatch()
+    const [filtredOffers, setFiltredOffers] = useState<string[]>([])
     const [searchValue, setSearchValue] = useState('')
     const searchHandler = (e) => {
         setSearchValue(e.target.value)
@@ -53,7 +52,6 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
         updatedList = updatedList.filter((item) => {
             return item.toLowerCase().includes(searchValue.toLowerCase())
         })
-        //@ts-ignore
         setFiltredOffers(updatedList)
     }
 

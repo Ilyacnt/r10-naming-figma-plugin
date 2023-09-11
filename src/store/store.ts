@@ -15,4 +15,5 @@ export const store = createStore(
     applyMiddleware(thunk, sessionSaverMiddleware)
 )
 
-export type StateType = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
