@@ -19,6 +19,7 @@ const Settings = () => {
                 placeholder="AABBCCDD"
                 onInput={setDefinedUniqueCode}
                 value={definedUniqueCode}
+                maxLength={8}
             />
             <span className="version">Version 2.2.0</span>
         </div>

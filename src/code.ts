@@ -94,7 +94,9 @@ figma.ui.onmessage = (msg) => {
                 renameNode(frame, code)
                 code = code
             } else {
-                code = generateCode()
+                if (!definedUniqueCode) {
+                    code = generateCode()
+                }
                 renameNode(frame, code)
                 counter = 1
             }
