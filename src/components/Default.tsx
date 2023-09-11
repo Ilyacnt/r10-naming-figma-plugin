@@ -9,7 +9,9 @@ import { setBuyer } from '../store/reducerDefaultActions'
 import Button from '../ui/Button'
 
 const Default = () => {
+    // @ts-ignore
     const { offer, designerColor, buyer, creoType, from, orderBy } = useSelector((state) => state.default)
+    // @ts-ignore
     const offersData = useSelector((state) => state.offers.offers)
     const dispatch = useDispatch()
     const creativesTypeData = ['stat', 'neu', 'rekl', 'krsl', 'prod', 'fvr']
@@ -18,6 +20,7 @@ const Default = () => {
     const state = useSelector((state) => state)
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(fetchOffers())
         // console.log(state);
     }, [])

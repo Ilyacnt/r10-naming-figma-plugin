@@ -110,6 +110,7 @@ const Select: React.FC<SelectProps> = ({ type, label, placeholder, options, onSe
                 {selectBodyToggle && (
                     <div
                         className="select-body"
+                        // @ts-ignore
                         style={{ width: `${selectHead.current.clientWidth - 30}px` }}
                         id="select-body"
                     >

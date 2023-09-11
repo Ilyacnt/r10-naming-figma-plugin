@@ -13,7 +13,7 @@ const Tabs: React.FC<Props> = ({ tabHandler }: Props) => {
             value: TabsValues.Default,
         },
         {
-            id: 3,
+            id: 2,
             value: TabsValues.Settings,
         },
     ]
